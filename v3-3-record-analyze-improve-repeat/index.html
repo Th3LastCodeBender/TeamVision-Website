@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TeamVision — Record, Analyze, Improve, Repeat</title>
+<link rel="icon" href="assets/favicon-n-32.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- <script>try{if(!sessionStorage.getItem('tv-entered'))document.documentElement.classList.add('gated')}catch(e){document.documentElement.classList.add('gated')}</script> -->
+</head>
+<body>
+
+<section class="gate" id="gate" aria-labelledby="gate-title">
+  <div class="wrap">
+    <div>
+      <span class="kicker">The problem</span>
+      <h1 id="gate-title">Medical errors are a teamwork problem.</h1>
+    </div>
+    <ol class="facts">
+      <li>
+        <b>3rd</b>
+        <p>leading cause of death in the US is medical error, about 250,000 deaths a year.<sup><a href="#ref-1">[1]</a></sup></p>
+      </li>
+      <li>
+        <b>40–80%</b>
+        <p>of medical errors involve miscommunication within the care team.<sup><a href="#ref-2">[2]</a></sup></p>
+      </li>
+    </ol>
+    <div class="actions">
+      <a class="btn btn-line" href="#top" data-enter>Leave</a>
+      <a class="btn btn-light" href="#top" data-enter>Our answer <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <ol class="refs">
+      <li id="ref-1">Makary MA, Daniel M. Medical error—the third leading cause of death in the US. <i>BMJ</i> 2016;353:i2139. <a href="https://doi.org/10.1136/bmj.i2139" target="_blank" rel="noopener">doi:10.1136/bmj.i2139 ↗</a></li>
+      <li id="ref-2"><span class="ph">[Verify source: this figure was attributed to Makary &amp; Daniel 2016, which reports the death estimate, not the communication share]</span></li>
+    </ol>
+  </div>
+</section>
+
+<dialog class="demo" id="demo" aria-labelledby="demo-title">
+  <button class="close" type="button" aria-label="Close" data-close><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+  <form id="demo-form" novalidate>
+    <h2 id="demo-title">Request a demo</h2>
+    <p class="sub">Leave your details and we'll get back to you to schedule a session.</p>
+    <div class="row">
+      <label>Name<input name="name" autocomplete="name" required></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+    </div>
+    <label>Organisation<input name="org" autocomplete="organization" required></label>
+    <label><span>Message <em>(optional)</em></span><textarea name="msg" rows="3" placeholder="Your team, setting, or what you'd like to see"></textarea></label>
+    <button class="btn btn-primary" type="submit">Send request <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+    <p class="note">This opens your email app with the message ready to send to info@teamvision.ai.</p>
+  </form>
+  <div class="done" role="status">
+    <h2>Almost there.</h2>
+    <p class="sub">Your email app should now be open with the request ready. Just press send.</p>
+    <p class="note">Nothing opened? Write to us directly at <a href="mailto:info@teamvision.ai">info@teamvision.ai</a>.</p>
+    <button class="btn btn-ghost" type="button" data-close>Close</button>
+  </div>
+</dialog>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" aria-label="TeamVision home" data-enter><img src="assets/logo.svg" alt="TeamVision Healthcare"></a>
+    <a class="btn btn-primary" href="mailto:info@teamvision.ai?subject=TeamVision%20demo%20request" data-demo>Request a demo</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <!-- one image per step (Record, Analyze, Improve, Repeat): replace the src with the final photos -->
+    <div class="hero-bg" aria-hidden="true">
+      <img src="assets/home_teamvision_visual.jpg" alt="">
+      <img src="assets/teamvision-UI.jpg" alt="">
+      <img src="assets/home_teamvision_visual.jpg" alt="">
+      <img src="assets/teamvision-UI.jpg" alt="">
+    </div>
+    <div class="wrap">
+      <div>
+        <h1 class="motto" aria-label="Record. Analyze. Improve. Repeat.">
+          <span class="on">Record</span><span>Analyze</span><span>Improve</span><span>Repeat</span>
+        </h1>
+        <p class="lead"><b>TeamVision helps experts train teams that operate together.</b> Record a session, see how the team coordinated, and debrief on evidence instead of memory. AI does the heavy lifting on the data; the trainer makes the calls. Born in hospitals, built for any team that trains.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="mailto:info@teamvision.ai?subject=TeamVision%20demo%20request" data-demo>Request a demo
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn btn-ghost" href="#record">See the loop</a>
+        </div>
+        <p class="cred">Developed in partnership with <b>University of Geneva</b> · <b>HUG</b> · <b>CIS</b> · <b>SNSF</b></p>
+      </div>
+
+      <div class="loop" aria-hidden="true">
+        <svg viewBox="-60 -20 520 440">
+          <!-- donut cut in four chevrons on the diagonals; each points clockwise to the next step -->
+          <path class="seg" data-seg="0" style="--c:var(--rec)" d="M 69.9 64.3 A 188 188 0 0 1 330.1 64.3 L 320.9 95.2 L 290.5 103.9 A 132 132 0 0 0 109.5 103.9 L 101.3 74.0 Z"/>
+          <path class="seg" data-seg="1" style="--c:var(--ana)" d="M 335.7 69.9 A 188 188 0 0 1 335.7 330.1 L 304.8 320.9 L 296.1 290.5 A 132 132 0 0 0 296.1 109.5 L 326.0 101.3 Z"/>
+          <path class="seg" data-seg="2" style="--c:var(--imp)" d="M 330.1 335.7 A 188 188 0 0 1 69.9 335.7 L 79.1 304.8 L 109.5 296.1 A 132 132 0 0 0 290.5 296.1 L 298.7 326.0 Z"/>
+          <path class="seg" data-seg="3" style="--c:var(--rep)" d="M 64.3 330.1 A 188 188 0 0 1 64.3 69.9 L 95.2 79.1 L 103.9 109.5 A 132 132 0 0 0 103.9 290.5 L 74.0 298.7 Z"/>
+          <g class="node" data-node="0" transform="translate(200 40)"><text x="0" y="-38" text-anchor="middle">Record</text><text class="num" x="0" y="-64" text-anchor="middle">01</text></g>
+          <g class="node" data-node="1" transform="translate(360 200)"><text x="40" y="6">Analyze</text><text class="num" x="40" y="-20">02</text></g>
+          <g class="node" data-node="2" transform="translate(200 360)"><text x="0" y="72" text-anchor="middle">Improve</text><text class="num" x="0" y="46" text-anchor="middle">03</text></g>
+          <g class="node" data-node="3" transform="translate(40 200)"><text x="-40" y="6" text-anchor="end">Repeat</text><text class="num" x="-40" y="-20" text-anchor="end">04</text></g>
+        </svg>
+        <div class="loop-center"><img src="assets/logo.svg" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="steps-head">
+      <h2><span>How it works.</span></h2>
+      <nav class="steps-nav" aria-label="Steps">
+        <a href="#record" class="on" style="--c:var(--rec)"><i>01</i>Record</a>
+        <a href="#analyze" style="--c:var(--ana)"><i>02</i>Analyze</a>
+        <a href="#improve" style="--c:var(--imp)"><i>03</i>Improve</a>
+        <a href="#repeat" style="--c:var(--rep)"><i>04</i>Repeat</a>
+      </nav>
+    </div>
+
+    <div class="steps">
+      <div class="steps-text">
+        <article class="step on" id="record" data-step="0">
+          <span class="badge" style="background:var(--rec-bg);color:var(--rec)"><i style="background:var(--rec)">01</i>Record</span>
+          <h3>Perform and record your simulation using TV's software.</h3>
+          <p class="card-text" data-text="record.body"></p>
+          <ul>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rec)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Built for simulation rooms and clinical settings</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rec)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Models the interaction in real time</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rec)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg><span class="ph">[Setup &amp; equipment: to be completed]</span></li>
+          </ul>
+          <div class="mobile-visual"><img src="assets/home_teamvision_visual.jpg" alt="Clinical team recorded by TeamVision"></div>
+        </article>
+
+        <article class="step" id="analyze" data-step="1">
+          <span class="badge" style="background:var(--ana-bg);color:var(--ana)"><i style="background:var(--ana)">02</i>Analyze</span>
+          <h3>Find the moments that matter, without hours of video.</h3>
+          <p class="card-text" data-text="analyze.body"></p>
+          <ul>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--ana)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Team coordination vs. patient condition, minute by minute</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--ana)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Who attends to whom, and each member's share</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--ana)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Up to 90% less time to detect risky behaviours*</li>
+          </ul>
+          <div class="mobile-visual"><img src="assets/teamvision-UI.jpg" alt="TeamVision analytics dashboard"></div>
+        </article>
+
+        <article class="step" id="improve" data-step="2">
+          <span class="badge" style="background:var(--imp-bg);color:var(--imp)"><i style="background:var(--imp)">03</i>Improve</span>
+          <h3>Debrief on evidence, not memory.</h3>
+          <p class="card-text" data-text="improve.body"></p>
+          <ul>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--imp)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Jump to flagged moments in the debrief</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--imp)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Objective feedback on team coordination and leadership</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--imp)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Help optimise the space for interaction</li>
+          </ul>
+        </article>
+
+        <article class="step" id="repeat" data-step="3">
+          <span class="badge" style="background:var(--rep-bg);color:var(--rep)"><i style="background:var(--rep)">04</i>Repeat</span>
+          <h3>Run it again, and see the difference.</h3>
+          <p class="card-text" data-text="repeat.body"></p>
+          <ul>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rep)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Compare sessions side by side</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rep)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Track team progress over a training programme</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rep)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Spot recurring patterns across teams</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="steps-visual" aria-hidden="true">
+        <div class="stage">
+          <div class="panel p-rec on" data-panel="0">
+            <div class="panel-bar"><span class="live"><i></i>RECORD</span><span>Session · Sim room 2</span></div>
+            <div class="panel-body">
+              <span class="rec-tag" style="left:8%;top:62%"><i style="background:#5b7bff"></i>Nurse A · gaze</span>
+              <span class="rec-tag" style="left:42%;top:26%"><i style="background:#2fbf7f"></i>Doctor B · monitor</span>
+              <span class="rec-tag" style="left:66%;top:74%"><i style="background:#f08a3c"></i>Doctor C · patient</span>
+              <span class="timecode">● 14:23:07</span>
+            </div>
+          </div>
+          <div class="panel p-ana" data-panel="1">
+            <div class="panel-bar"><span class="live" style="color:var(--ana)">ANALYZE</span><span>Session 12.03.2021 · 14h08</span></div>
+            <div class="panel-body"><img src="assets/teamvision-UI.jpg" alt=""></div>
+          </div>
+          <div class="panel p-imp" data-panel="2">
+            <div class="panel-bar"><span class="live" style="color:var(--imp)">IMPROVE</span><span>Debrief · critical moments</span></div>
+            <div class="panel-body">
+              <div class="moment"><time>14h15</time><div><h4>Team coordination starts to degrade</h4><p>Flagged automatically. Start the debrief from the minute before.</p><span class="chip down">Degradation</span></div></div>
+              <div class="moment"><time>14h21</time><div><h4>Patient condition degrades</h4><p>About six minutes after the team's curve.</p><span class="chip down">Degradation</span></div></div>
+              <div class="moment"><time>14h29</time><div><h4>Team coordination improves</h4><p>What changed? Review roles, attention and positioning.</p><span class="chip up">Improvement</span></div></div>
+              <div class="moment"><time>14h33</time><div><h4>Patient condition improves</h4><p>Both curves head back toward "good".</p><span class="chip up">Improvement</span></div></div>
+              <p class="example">Example debrief based on the session shown in the dashboard</p>
+            </div>
+          </div>
+          <div class="panel p-rep" data-panel="3">
+            <div class="panel-bar"><span class="live" style="color:var(--rep)">REPEAT · COMPARE</span><span>Team progress</span></div>
+            <div class="panel-body">
+              <div class="legend"><span><i style="background:#c9bccd"></i>Session 1</span><span><i style="background:#b59bc6"></i>Session 2</span><span><i style="background:var(--rep)"></i>Session 3</span></div>
+              <svg viewBox="0 0 400 260" preserveAspectRatio="none" role="img" aria-label="Illustrative comparison of team coordination across three sessions">
+                <g stroke="#ebe5ec" stroke-width="1"><line x1="0" y1="40" x2="400" y2="40"/><line x1="0" y1="130" x2="400" y2="130"/><line x1="0" y1="220" x2="400" y2="220"/></g>
+                <text x="4" y="34" font-size="11" fill="#7a6a7d" font-family="Sora">GOOD</text>
+                <text x="4" y="214" font-size="11" fill="#7a6a7d" font-family="Sora">BAD</text>
+                <path d="M0 80 C 80 82, 110 200, 170 205 S 280 120, 400 110" fill="none" stroke="#c9bccd" stroke-width="3"/>
+                <path d="M0 70 C 80 72, 120 160, 180 165 S 280 90, 400 80" fill="none" stroke="#b59bc6" stroke-width="3"/>
+                <path id="s3" d="M0 60 C 90 60, 130 105, 190 110 S 290 55, 400 48" fill="none" stroke="var(--rep)" stroke-width="4"/>
+              </svg>
+              <p class="example">Illustrative chart, not measured data</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="who">
+    <div class="wrap">
+      <div class="intro">
+        <div><span class="kicker">Where the loop runs</span><h2>Built in the hospital. Works wherever teams train.</h2></div>
+        <p>The first prototypes were built and tested with clinical teams, which is why our examples come from the hospital. The method itself is not medical: it works in any discipline where experts train a team that has to operate together.</p>
+      </div>
+      <article class="card">
+        <span class="ico" style="background:var(--imp-bg)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--imp)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/><path d="M9 12h2l1-2 1.5 4 1-2H17"/></svg></span>
+        <h3>Healthcare</h3>
+        <p>Team coordination and patient–caregiver interaction in clinical interventions and simulations.</p>
+        <p class="loop-line">Record a simulation → debrief → run the scenario again</p>
+      </article>
+      <article class="card">
+        <span class="ico" style="background:var(--rec-bg)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--rec)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span>
+        <h3>Business</h3>
+        <p>Line management, negotiation, sales and recruitment.</p>
+        <p class="loop-line">Record a negotiation → review dynamics → practise again</p>
+      </article>
+      <article class="card">
+        <span class="ico" style="background:var(--ana-bg)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--ana)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></span>
+        <h3>Education</h3>
+        <p>Immersive learning and interprofessional simulation.</p>
+        <p class="loop-line">Record a class exercise → objective feedback → repeat</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="split">
+    <div class="wrap">
+      <div>
+        <span class="kicker">Questions</span>
+        <h2>Before you start the loop</h2>
+        <details open><summary>Where was it validated?</summary><p>On thousands of interaction sequences in simulated clinical settings at University Hospitals between 2020 and 2024.*</p></details>
+        <details><summary>What is recorded, and how is data protected?</summary><p><span class="ph">[To be completed: data captured, storage, anonymisation, retention, compliance]</span></p></details>
+        <details><summary>What do we need to install?</summary><p><span class="ph">[To be completed: cameras/microphones, room setup, installation time]</span></p></details>
+        <details><summary>Does it replace the facilitator?</summary><p>No. It gives facilitators an objective timeline of critical moments, so the debrief is spent discussing instead of searching through video.</p></details>
+        <p style="margin-top:20px;font-size:13px;color:var(--muted)">* Results obtained through the analysis of thousands of interaction sequences in simulated clinical settings between 2020 and 2021 at University Hospitals.</p>
+      </div>
+      <div>
+        <span class="kicker">Research</span>
+        <h2>Grounded in science</h2>
+        <div class="lead-person">
+          <div class="av"><span>DG</span></div>
+          <div><h3>Donald Glowinski, PhD</h3><p>Head of Project · <a href="mailto:info@teamvision.ai">info@teamvision.ai</a></p></div>
+        </div>
+        <div class="partners">
+          <a href="https://www.unige.ch" target="_blank" rel="noopener"><img src="assets/logo_neg_UniGE.png" alt="Université de Genève"></a>
+          <a href="https://www.hug.ch" target="_blank" rel="noopener"><img src="assets/logo_neg_HUG.png" alt="Hôpitaux Universitaires de Genève"></a>
+          <a href="https://www.cis-ge.ch" target="_blank" rel="noopener"><img src="assets/logo_neg_CIS.png" alt="Centre Interprofessionnel de Simulation"></a>
+          <a href="https://www.snf.ch/en" target="_blank" rel="noopener"><img src="assets/logo_neg_FNSNF.png" alt="Swiss National Science Foundation"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="contact">
+    <div class="wrap">
+      <div>
+        <h2>Bring TeamVision to your next simulation.</h2>
+        <p>Talk to Donald Glowinski, PhD — Head of Project.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:info@teamvision.ai">info@teamvision.ai</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/logo.svg" alt="TeamVision Healthcare">
+    <span>© 2026 TeamVision · Record, Analyze, Improve, Repeat.</span>
+  </div>
+</footer>
+
+<script src="texts.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
