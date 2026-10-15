@@ -6,7 +6,7 @@
   /* neutrals */
   --bg: #fbf9fb;
   --paper: #ffffff;
-  --ink: #231424;
+  --ink: #4a3c4d; /* same colour as the "TEAM VISION" lettering in the logo */
   --ink-2: #4a3c4d;
   --muted: #7a6a7d;
   --line: #ebe5ec;
@@ -181,7 +181,7 @@ html.gated body {
   position: fixed;
   inset: 72px 0 0;
   z-index: 35;
-  color: #fff;
+  color: var(--ink);
   overflow-y: auto;
   transition:
     opacity 0.5s,
@@ -202,24 +202,32 @@ html.gated body {
   pointer-events: none;
 }
 
-/* Left-aligned layout: statement on top, the two facts as cards side by
-   side, then the buttons and the source. Slanted shapes and step colours
-   echo the rest of the site. */
+/* Two columns: on the left what TeamVision is and offers (headline, one
+   line of explanation, the single button, the partners); on the right the
+   problem as supporting evidence. Phones stack them in that order, so the
+   headline and the button are seen first. */
 .gate {
   background:
-    radial-gradient(60% 50% at 100% 0%, rgba(224, 112, 90, 0.22), transparent 70%),
-    radial-gradient(50% 45% at 0% 100%, rgba(61, 127, 217, 0.16), transparent 70%),
-    var(--ink);
+    radial-gradient(55% 50% at 100% 0%, var(--imp-bg), transparent 70%),
+    radial-gradient(50% 45% at 0% 100%, var(--rec-bg), transparent 70%),
+    var(--bg);
 }
 
 .gate .wrap {
   margin: auto;
   width: 100%;
-  padding-top: clamp(36px, 7vh, 88px);
-  padding-bottom: clamp(28px, 5vh, 56px);
+  padding-top: clamp(32px, 6vh, 72px);
+  padding-bottom: clamp(24px, 4vh, 48px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(32px, 5vh, 48px) clamp(40px, 6vw, 96px);
+  align-items: center;
+}
+
+.gate-pitch {
   display: flex;
   flex-direction: column;
-  gap: clamp(28px, 5vh, 52px);
+  align-items: flex-start;
 }
 
 /* each block slides up in turn when the gate opens */
@@ -227,9 +235,20 @@ html.gated body {
   animation: gate-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-.gate .wrap > :nth-child(2) { animation-delay: 0.15s; }
-.gate .wrap > :nth-child(3) { animation-delay: 0.3s; }
-.gate .wrap > :nth-child(4) { animation-delay: 0.4s; }
+.gate .wrap > :nth-child(2) { animation-delay: 0.2s; }
+.gate .wrap > :nth-child(3) { animation-delay: 0.35s; }
+.gate .wrap > :nth-child(4) { animation-delay: 0.45s; }
+
+/* Big centred logo across both columns */
+.gate-brand {
+  grid-column: 1/-1;
+}
+
+.gate-brand img {
+  width: clamp(240px, min(42vw, 60vh), 560px);
+  height: auto;
+  margin-inline: auto;
+}
 
 @keyframes gate-in {
   from {
@@ -239,39 +258,59 @@ html.gated body {
 }
 
 .gate-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font: 600 13px/1 var(--display);
+  display: block;
+  font: 600 13px/1.6 var(--display);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #b9adbb;
+  color: var(--muted);
 }
 
-/* red "alert" dot */
-.gate-kicker i {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #f0715d;
-  box-shadow: 0 0 0 4px rgba(240, 113, 93, 0.2);
-  animation: blink 1.6s infinite;
+.gate-kicker .rai {
+  white-space: nowrap;
 }
 
-.gate h1 {
-  margin-top: 18px;
-  font-size: clamp(48px, 9vw, 120px);
-  line-height: 0.95;
-  letter-spacing: -0.045em;
+.gate-claim {
+  margin-top: 16px;
+  max-width: 15ch;
+  font-size: clamp(34px, min(4.4vw, 7.5vh), 64px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.gate-claim em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--rec), var(--ana) 50%, var(--imp));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .gate-sub {
-  margin-top: 18px;
-  max-width: 30ch;
-  font: 500 clamp(20px, 2.2vw, 28px) / 1.3 var(--display);
-  letter-spacing: -0.01em;
-  color: #d9cfdb;
-  text-wrap: balance;
+  margin-top: 22px;
+  max-width: 40ch;
+  font: 400 clamp(17px, 1.5vw, 20px) / 1.5 var(--sans);
+  color: var(--ink-2);
+}
+
+.gate-trust {
+  margin-top: 28px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.gate-trust b {
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+/* The problem: a small heading, then the two facts stacked in cards */
+.gate-why h2 {
+  margin-bottom: 14px;
+  font: 600 13px/1.4 var(--display);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .gate ol.facts {
@@ -279,30 +318,30 @@ html.gated body {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(16px, 2.4vw, 28px);
+  gap: 14px;
 }
 
 .gate .fact {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: clamp(22px, 3vw, 32px);
+  gap: 8px;
+  padding: clamp(18px, 2vw, 24px);
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 50px -30px rgba(35, 20, 36, 0.25);
 }
 
 .gate .fact > b {
-  font: 700 clamp(48px, 6vw, 80px) / 1 var(--display);
+  font: 700 clamp(36px, 3.4vw, 48px) / 1 var(--display);
   letter-spacing: -0.04em;
-  color: #f29a84;
+  color: var(--imp);
 }
 
 .gate .fact > p {
-  font: 500 clamp(17px, 1.5vw, 20px) / 1.4 var(--display);
+  font: 500 clamp(15px, 1.2vw, 17px) / 1.4 var(--display);
   letter-spacing: -0.01em;
-  color: #e8e1e9;
+  color: var(--ink-2);
   text-wrap: pretty;
 }
 
@@ -322,7 +361,7 @@ html.gated body {
   isolation: isolate;
   counter-increment: rank;
   font: 600 12px/1 var(--display);
-  color: #b9adbb;
+  color: var(--muted);
   padding: 7px 12px;
 }
 
@@ -334,7 +373,7 @@ html.gated body {
   width: var(--w);
   border-radius: 5px;
   transform: skewX(-14deg);
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--tint);
   transform-origin: left;
   animation: bar-in 1s 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
@@ -349,7 +388,7 @@ html.gated body {
 }
 
 .rank li.hit::before {
-  background: #e0705a;
+  background: var(--imp);
 }
 
 @keyframes bar-in {
@@ -375,7 +414,7 @@ html.gated body {
 }
 
 .range::before {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--tint);
 }
 
 .range-fill {
@@ -383,7 +422,7 @@ html.gated body {
   top: 10px;
   left: 40%;
   width: 40%;
-  background: linear-gradient(90deg, #e0705a, #f29a84);
+  background: var(--imp);
   transform-origin: left;
   animation: range-in 1s 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
@@ -400,7 +439,7 @@ html.gated body {
   height: 14px;
   margin-top: 8px;
   font: 600 11px/1 var(--display);
-  color: #9b8e9d;
+  color: var(--muted);
 }
 
 .range-scale i {
@@ -410,8 +449,8 @@ html.gated body {
 }
 
 .range-scale i:nth-child(1) { left: 0; transform: none; }
-.range-scale i:nth-child(2) { left: 40%; color: #f29a84; }
-.range-scale i:nth-child(3) { left: 80%; color: #f29a84; }
+.range-scale i:nth-child(2) { left: 40%; color: var(--imp); }
+.range-scale i:nth-child(3) { left: 80%; color: var(--imp); }
 .range-scale i:nth-child(4) { right: 0; transform: none; }
 
 .gate sup {
@@ -419,17 +458,20 @@ html.gated body {
 }
 
 .gate sup a {
-  color: #f1b8aa;
+  color: var(--imp);
   text-decoration: none;
   font: 600 0.7em var(--sans);
   padding: 0 2px;
 }
 
 .gate .actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px 20px;
-  padding-left: 6px; /* the slant leans the buttons out: keep them aligned with the text */
+  margin-top: 32px;
+  padding-left: 6px; /* the slant leans the button out: keep it aligned with the text */
+}
+
+.gate .actions .btn {
+  padding: 17px 30px;
+  font-size: 16px;
 }
 
 .btn-light {
@@ -458,13 +500,14 @@ html.gated body {
 }
 
 .gate .refs {
+  grid-column: 1/-1;
   margin: 0;
   padding: 18px 0 0;
   list-style-position: inside;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid var(--line);
   font-size: 13px;
   line-height: 1.5;
-  color: #9b8e9d;
+  color: var(--muted);
 }
 
 .gate .refs li + li {
@@ -472,11 +515,11 @@ html.gated body {
 }
 
 .gate .refs a {
-  color: #f1b8aa;
+  color: var(--imp);
 }
 
-@media (max-width: 720px) {
-  .gate ol.facts {
+@media (max-width: 900px) {
+  .gate .wrap {
     grid-template-columns: 1fr;
   }
 }

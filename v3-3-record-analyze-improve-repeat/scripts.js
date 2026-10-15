@@ -117,8 +117,6 @@
             if (event.key === "Escape")
                 enterSite();
         });
-        // Put keyboard focus on the last "enter" button of the gate.
-        gate.querySelector("[data-enter]:last-of-type").focus();
         /** Hides the gate and moves focus to the top of the site. */
         function showSite() {
             gate.classList.add("gone");
@@ -157,6 +155,8 @@
             const start = button.getBoundingClientRect();
             const wipe = document.createElement("div");
             wipe.className = "wipe";
+            // Same colour as the clicked button (drawn by its ::before).
+            wipe.style.background = getComputedStyle(button, "::before").backgroundColor;
             document.body.appendChild(wipe);
             // The shape is skewed by 14deg, so it must be wider than the screen
             // by `slant` on each side to cover the corners.

@@ -11,9 +11,9 @@
    ================================================================== */
 const TEXTS = {
     hero: {
-        lead: "**TeamVision helps experts train teams that operate together.** " +
-            "Record a session using our digital and fisical tools. See how the team coordinated, and debrief on evidence instead of memory. " +
-            "Ai does the heavy lifting on the data, the trainer uses that data to address areas of improvement in the team. " +
+        lead: "**TeamVision helps experts train teams that operate together.** \n" +
+            "Record a session using our digital and fisical tools. See how the team coordinated, and debrief on evidence and data.\n" +
+            "TV's sofware does the heavy lifting on the data, the trainer uses that data to address areas of improvement in the team. " +
             "Born in hospitals, built for any team that trains in any context.",
         ctaDemo: "Request a demo",
         ctaLoop: "Discover the method",
