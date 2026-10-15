@@ -181,7 +181,6 @@ html.gated body {
   position: fixed;
   inset: 72px 0 0;
   z-index: 35;
-  background: var(--ink);
   color: #fff;
   overflow-y: auto;
   transition:
@@ -203,30 +202,75 @@ html.gated body {
   pointer-events: none;
 }
 
+/* Left-aligned layout: statement on top, the two facts as cards side by
+   side, then the buttons and the source. Slanted shapes and step colours
+   echo the rest of the site. */
+.gate {
+  background:
+    radial-gradient(60% 50% at 100% 0%, rgba(224, 112, 90, 0.22), transparent 70%),
+    radial-gradient(50% 45% at 0% 100%, rgba(61, 127, 217, 0.16), transparent 70%),
+    var(--ink);
+}
+
 .gate .wrap {
   margin: auto;
   width: 100%;
-  padding-top: clamp(40px, 8vh, 96px);
-  padding-bottom: clamp(32px, 6vh, 64px);
+  padding-top: clamp(36px, 7vh, 88px);
+  padding-bottom: clamp(28px, 5vh, 56px);
   display: flex;
   flex-direction: column;
-  gap: clamp(32px, 5vh, 56px);
-  align-items: center;
-  text-align: center;
+  gap: clamp(28px, 5vh, 52px);
 }
 
-.gate .kicker {
-	font-size: 40px;
-	color: #b9adbb;
-	white-space: nowrap;
+/* each block slides up in turn when the gate opens */
+.gate .wrap > * {
+  animation: gate-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.gate .wrap > :nth-child(2) { animation-delay: 0.15s; }
+.gate .wrap > :nth-child(3) { animation-delay: 0.3s; }
+.gate .wrap > :nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes gate-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+.gate-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font: 600 13px/1 var(--display);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #b9adbb;
+}
+
+/* red "alert" dot */
+.gate-kicker i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f0715d;
+  box-shadow: 0 0 0 4px rgba(240, 113, 93, 0.2);
+  animation: blink 1.6s infinite;
 }
 
 .gate h1 {
-  margin: 0 auto;
-  max-width: 16ch;
-  font-size: clamp(36px, 5.6vw, 72px);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  margin-top: 18px;
+  font-size: clamp(48px, 9vw, 120px);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.gate-sub {
+  margin-top: 18px;
+  max-width: 30ch;
+  font: 500 clamp(20px, 2.2vw, 28px) / 1.3 var(--display);
+  letter-spacing: -0.01em;
+  color: #d9cfdb;
   text-wrap: balance;
 }
 
@@ -236,28 +280,139 @@ html.gated body {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(24px, 4vw, 56px);
-  width: 100%;
-  max-width: 960px;
+  gap: clamp(16px, 2.4vw, 28px);
 }
 
-.gate .facts li {
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  padding-top: 22px;
+.gate .fact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(22px, 3vw, 32px);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.gate .facts b {
-  display: block;
-  font: 700 clamp(44px, 5vw, 64px) / 1 var(--display);
-  letter-spacing: -0.03em;
+.gate .fact > b {
+  font: 700 clamp(48px, 6vw, 80px) / 1 var(--display);
+  letter-spacing: -0.04em;
+  color: #f29a84;
 }
 
-.gate .facts p {
-  margin-top: 12px;
-  font: 500 clamp(18px, 1.7vw, 22px) / 1.4 var(--display);
+.gate .fact > p {
+  font: 500 clamp(17px, 1.5vw, 20px) / 1.4 var(--display);
   letter-spacing: -0.01em;
-  text-wrap: balance;
+  color: #e8e1e9;
+  text-wrap: pretty;
 }
+
+/* Fact 1: the three leading causes of death as slanted bars */
+.rank {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  counter-reset: rank;
+}
+
+.rank li {
+  position: relative;
+  isolation: isolate;
+  counter-increment: rank;
+  font: 600 12px/1 var(--display);
+  color: #b9adbb;
+  padding: 7px 12px;
+}
+
+.rank li::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 4px;
+  z-index: -1;
+  width: var(--w);
+  border-radius: 5px;
+  transform: skewX(-14deg);
+  background: rgba(255, 255, 255, 0.08);
+  transform-origin: left;
+  animation: bar-in 1s 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.rank li span::before {
+  content: counter(rank) ". ";
+  opacity: 0.6;
+}
+
+.rank li.hit {
+  color: #fff;
+}
+
+.rank li.hit::before {
+  background: #e0705a;
+}
+
+@keyframes bar-in {
+  from {
+    width: 0;
+  }
+}
+
+/* Fact 2: the 40–80% range highlighted on a 0–100% track */
+.range {
+  position: relative;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.range::before,
+.range-fill {
+  content: "";
+  display: block;
+  height: 26px;
+  border-radius: 5px;
+  transform: skewX(-14deg);
+}
+
+.range::before {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.range-fill {
+  position: absolute;
+  top: 10px;
+  left: 40%;
+  width: 40%;
+  background: linear-gradient(90deg, #e0705a, #f29a84);
+  transform-origin: left;
+  animation: range-in 1s 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes range-in {
+  from {
+    transform: skewX(-14deg) scaleX(0);
+  }
+}
+
+.range-scale {
+  position: relative;
+  display: block;
+  height: 14px;
+  margin-top: 8px;
+  font: 600 11px/1 var(--display);
+  color: #9b8e9d;
+}
+
+.range-scale i {
+  position: absolute;
+  font-style: normal;
+  transform: translateX(-50%);
+}
+
+.range-scale i:nth-child(1) { left: 0; transform: none; }
+.range-scale i:nth-child(2) { left: 40%; color: #f29a84; }
+.range-scale i:nth-child(3) { left: 80%; color: #f29a84; }
+.range-scale i:nth-child(4) { right: 0; transform: none; }
 
 .gate sup {
   line-height: 0;
@@ -272,9 +427,9 @@ html.gated body {
 
 .gate .actions {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 16px 20px;
+  padding-left: 6px; /* the slant leans the buttons out: keep them aligned with the text */
 }
 
 .btn-light {
@@ -306,12 +461,10 @@ html.gated body {
   margin: 0;
   padding: 18px 0 0;
   list-style-position: inside;
-  width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 13px;
   line-height: 1.5;
-  color: #b9adbb;
-  max-width: 960px;
+  color: #9b8e9d;
 }
 
 .gate .refs li + li {

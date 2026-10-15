@@ -15,25 +15,39 @@
 
 <section class="gate" id="gate" aria-labelledby="gate-title">
   <div class="wrap">
-    <div>
-      <span class="kicker">What problem TEAM VISION wants to address</span>
+    <header class="gate-head">
+      <span class="gate-kicker"><i></i>The problem TeamVision addresses</span>
       <h1 id="gate-title">Medical errors.</h1>
-	  <h1 id="gate-content"></h1>
-    </div>
+      <p class="gate-sub">Many of them begin with how the care team communicates.</p>
+    </header>
+
     <ol class="facts">
-      <li>
+      <li class="fact">
         <b>3rd</b>
         <p>leading cause of death in the US is medical error, about 250,000 deaths a year.<sup><a href="#ref-1">[1]</a></sup></p>
+        <!-- causes of death in the US, as ranked in the BMJ study [1] -->
+        <ol class="rank" aria-hidden="true">
+          <li style="--w:100%"><span>Heart disease</span></li>
+          <li style="--w:96%"><span>Cancer</span></li>
+          <li class="hit" style="--w:41%"><span>Medical error</span></li>
+        </ol>
       </li>
-      <li>
+      <li class="fact">
         <b>40–80%</b>
         <p>of medical errors involve miscommunication within the care team.<sup><a href="#ref-2">[2]</a></sup></p>
+        <!-- range shown on a 0–100% track -->
+        <div class="range" aria-hidden="true">
+          <span class="range-fill"></span>
+          <span class="range-scale"><i>0%</i><i>40%</i><i>80%</i><i>100%</i></span>
+        </div>
       </li>
     </ol>
+
     <div class="actions">
       <a class="btn btn-line" href="#top" data-enter>Leave</a>
       <a class="btn btn-light" href="#top" data-enter>Our answer <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     </div>
+
     <ol class="refs">
       <li id="ref-1">Makary MA, Daniel M. Medical error—the third leading cause of death in the US. <i>BMJ</i> 2016;353:i2139. <a href="https://doi.org/10.1136/bmj.i2139" target="_blank" rel="noopener">doi:10.1136/bmj.i2139 ↗</a></li>
     </ol>
