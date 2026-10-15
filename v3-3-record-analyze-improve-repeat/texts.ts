@@ -18,7 +18,6 @@ const TEXTS: Record<string, Record<string, string>> = {
       "Born in hospitals, built for any team that trains in any context.",
     ctaDemo: "Request a demo",
     ctaLoop: "Discover the method",
-    cred: "Developed in partnership with **University of Geneva** · **HUG** · **CIS** · **SNSF**",
   },
 
   record: {

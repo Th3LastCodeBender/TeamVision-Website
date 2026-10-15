@@ -17,7 +17,6 @@ const TEXTS = {
             "Born in hospitals, built for any team that trains in any context.",
         ctaDemo: "Request a demo",
         ctaLoop: "Discover the method",
-        cred: "Developed in partnership with **University of Geneva** · **HUG** · **CIS** · **SNSF**",
     },
     record: {
         body: "Our custom built recording system using Unity and Steam hardware, resilient and easily customizable for every situation.\n" +

@@ -179,7 +179,7 @@ html.gated body {
 
 .gate {
   position: fixed;
-  inset: 72px 0 0;
+  inset: 0;
   z-index: 35;
   color: var(--ink);
   overflow-y: auto;
@@ -712,8 +712,9 @@ html.gated body {
   width: auto;
 }
 
-html.gated .nav .btn {
-  display: none;
+/* hidden while the gate is open (kept in the layout, so the page does not jump when it comes back) */
+html.gated .nav {
+  visibility: hidden;
 }
 
 .nav .btn {
@@ -869,21 +870,6 @@ html.gated .nav .btn {
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 32px;
-}
-
-.cred {
-  margin-top: 36px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  font-size: 14px;
-  color: var(--muted);
-}
-
-.cred b {
-  color: var(--ink-2);
-  font-weight: 600;
 }
 
 @media (max-width: 900px) {
