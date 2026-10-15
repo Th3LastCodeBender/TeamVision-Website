@@ -16,13 +16,11 @@
   --rec: #3d7fd9;
   --ana: #139a8a;
   --imp: #e0705a;
-  --rep: #8a5fa8;
 
   /* light tint of each step colour, for badges and icon backgrounds */
   --rec-bg: #eaf2fc;
   --ana-bg: #e5f5f2;
   --imp-bg: #fcede9;
-  --rep-bg: #f2ebf7;
 
   /* fonts */
   --display: "Sora", system-ui, sans-serif;
@@ -94,7 +92,7 @@ p {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
-  padding-bottom: 10;
+  padding-bottom: 35px;
 }
 
 
@@ -218,8 +216,9 @@ html.gated body {
 }
 
 .gate .kicker {
-	font-size: 16px;
-  color: #b9adbb;
+	font-size: 40px;
+	color: #b9adbb;
+	white-space: nowrap;
 }
 
 .gate h1 {
@@ -563,7 +562,7 @@ html.gated .nav .btn {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.9s ease;
+  transition: opacity 1.6s ease;
 }
 
 .hero-bg img.on {
@@ -582,23 +581,52 @@ html.gated .nav .btn {
   );
 }
 
-.hero .wrap {
+.hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: clamp(40px, 6vw, 80px);
   align-items: center;
 }
 
+.hero-head {
+  text-align: center;
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+
+.hero-head .kicker {
+	font-size: clamp(50px, 1.6vw, 20px);
+	padding-bottom: 40px;
+}
+
+/* "RAI" in the kicker: each letter in its step colour */
+.rai b {
+  font-weight: inherit;
+}
+
+.rai b:nth-child(1) {
+  color: var(--rec);
+}
+
+.rai b:nth-child(2) {
+  color: var(--ana);
+}
+
+.rai b:nth-child(3) {
+  color: var(--imp);
+}
+
 .motto {
-  font: 700 clamp(38px, 5.4vw, 72px) / 1 var(--display);
+  font: 700 clamp(16px, 4.4vw, 52px) / 1 var(--display);
+  text-transform: uppercase;
   letter-spacing: -0.045em;
+  white-space: nowrap;
 }
 
 .motto span {
-  display: block;
+  display: inline;
   transition:
-    color 0.5s,
-    opacity 0.5s;
+    color 1s,
+    opacity 1s;
   color: var(--ink);
   opacity: 0.18;
 }
@@ -619,19 +647,20 @@ html.gated .nav .btn {
   color: var(--imp);
 }
 
-.motto span:nth-child(4).on {
-  color: var(--rep);
-}
-
 .motto span::after {
   content: ".";
 }
 
+.motto span + span {
+  margin-left: 0.3em;
+}
+
 .hero .lead {
-  margin-top: 32px;
+  margin-top: 0;
   font-size: clamp(17px, 1.5vw, 20px);
   color: var(--ink-2);
   max-width: 52ch;
+  white-space: pre-line;
 }
 
 .hero .lead b {
@@ -662,7 +691,7 @@ html.gated .nav .btn {
 }
 
 @media (max-width: 900px) {
-  .hero .wrap {
+  .hero-grid {
     grid-template-columns: 1fr;
   }
   .motto span {
@@ -695,8 +724,8 @@ html.gated .nav .btn {
   stroke-width: 1.5;
   stroke-linejoin: round;
   transition:
-    fill 0.5s,
-    stroke 0.5s;
+    fill 1s,
+    stroke 1s;
 }
 
 .loop .seg.on {
@@ -708,9 +737,9 @@ html.gated .nav .btn {
   font: 500 17px var(--display);
   fill: var(--ink-2);
   transition:
-    font-size 0.35s,
-    font-weight 0.35s,
-    fill 0.35s;
+    font-size 0.8s,
+    font-weight 0.8s,
+    fill 0.8s;
 }
 
 .loop .node.on text {
@@ -778,7 +807,7 @@ html.gated .nav .btn {
 }
 
 .steps-head h2 span {
-  background: linear-gradient(90deg, var(--rec), var(--ana) 40%, var(--imp) 70%, var(--rep));
+  background: linear-gradient(90deg, var(--rec), var(--ana) 50%, var(--imp));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -793,7 +822,20 @@ html.gated .nav .btn {
 .steps-nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 8px 10px;
+}
+
+/* arrow between two tabs, pointing to the next step */
+.steps-arrow {
+  display: inline-flex;
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+.steps-arrow svg {
+  width: 60px;
+  height: 18px;
 }
 
 .steps-nav a {
@@ -847,14 +889,16 @@ html.gated .nav .btn {
 }
 
 /* Desktop: the header stays pinned under the nav while the steps scroll,
-   and each step snaps to the centre of the space left below it. */
+   and each step snaps to the centre of the space left below it.
+   The whole page snaps: every scroll lands on a step or on the top of a
+   section. A section taller than the screen can still be scrolled freely. */
 @media (min-width: 901px) {
   :root {
     --steps-top: 72px;   /* nav height */
     --steps-head: 120px; /* sticky header height */
   }
   html {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     scroll-padding-top: calc(var(--steps-top) + var(--steps-head));
   }
   .steps-head {
@@ -870,6 +914,16 @@ html.gated .nav .btn {
   .step {
     scroll-snap-align: center;
     scroll-snap-stop: always;
+  }
+  .hero,
+  .who,
+  .split,
+  .final {
+    scroll-snap-align: start;
+    scroll-margin-top: calc(-1 * var(--steps-head)); /* land right under the nav, not under the steps header */
+  }
+  footer {
+    scroll-snap-align: end;
   }
 }
 
@@ -900,27 +954,52 @@ html.gated .nav .btn {
   opacity: 1;
 }
 
+/* Step label: same slanted parallelogram as the tabs in .steps-nav.
+   The slant is drawn on pseudo-elements so the text stays upright. */
 .badge {
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   align-self: flex-start;
-  padding: 8px 14px 8px 8px;
-  border-radius: 999px;
+  margin-left: 6px; /* the slant leans the bottom-left corner out: keep it aligned with the title */
+  padding: 8px 16px 8px 8px;
   font: 600 13px/1 var(--display);
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: var(--c);
+}
+
+.badge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 8px;
+  transform: skewX(-14deg);
+  background: var(--c-bg);
 }
 
 .badge i {
+  position: relative;
   display: grid;
   place-items: center;
-  width: 26px;
+  width: 28px;
   height: 26px;
-  border-radius: 50%;
   color: #fff;
   font-style: normal;
   font-size: 12px;
+}
+
+.badge i::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 5px;
+  transform: skewX(-14deg);
+  background: var(--c);
 }
 
 .step h3 {
@@ -1170,42 +1249,6 @@ html.gated .nav .btn {
 }
 
 
-/* ==================================================================
-   REPEAT PANEL
-   ================================================================== */
-
-.p-rep .panel-body {
-  padding: clamp(16px, 3vw, 28px);
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(180deg, var(--paper), var(--rep-bg));
-}
-
-.p-rep svg {
-  width: 100%;
-  flex: 1;
-  min-height: 0;
-}
-
-.p-rep .legend {
-  display: flex;
-  gap: 18px;
-  font-size: 13px;
-  color: var(--ink-2);
-  flex-wrap: wrap;
-}
-
-.p-rep .legend span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.p-rep .legend i {
-  width: 12px;
-  height: 3px;
-  border-radius: 2px;
-}
 
 @media (max-width: 900px) {
   .steps {
@@ -1401,7 +1444,7 @@ details p {
   flex: 0 0 64px;
   height: 64px;
   border-radius: 50%;
-  background: conic-gradient(var(--rec), var(--ana), var(--imp), var(--rep), var(--rec));
+  background: conic-gradient(var(--rec), var(--ana), var(--imp), var(--rec));
   display: grid;
   place-items: center;
 }

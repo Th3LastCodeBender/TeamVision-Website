@@ -3,21 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TeamVision — Record, Analyze, Improve, Repeat</title>
+<title>TeamVision — Record, Analyze, Improve</title>
 <link rel="icon" href="assets/favicon-n-32.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<!-- <script>try{if(!sessionStorage.getItem('tv-entered'))document.documentElement.classList.add('gated')}catch(e){document.documentElement.classList.add('gated')}</script> -->
+<script>try{if(!sessionStorage.getItem('tv-entered'))document.documentElement.classList.add('gated')}catch(e){document.documentElement.classList.add('gated')}</script>
 </head>
 <body>
 
 <section class="gate" id="gate" aria-labelledby="gate-title">
   <div class="wrap">
     <div>
-      <span class="kicker">The problem</span>
-      <h1 id="gate-title">Medical errors are a teamwork problem.</h1>
+      <span class="kicker">What problem TEAM VISION wants to address</span>
+      <h1 id="gate-title">Medical errors.</h1>
+	  <h1 id="gate-content"></h1>
     </div>
     <ol class="facts">
       <li>
@@ -35,7 +36,6 @@
     </div>
     <ol class="refs">
       <li id="ref-1">Makary MA, Daniel M. Medical error—the third leading cause of death in the US. <i>BMJ</i> 2016;353:i2139. <a href="https://doi.org/10.1136/bmj.i2139" target="_blank" rel="noopener">doi:10.1136/bmj.i2139 ↗</a></li>
-      <li id="ref-2"><span class="ph">[Verify source: this figure was attributed to Makary &amp; Daniel 2016, which reports the death estimate, not the communication share]</span></li>
     </ol>
   </div>
 </section>
@@ -71,38 +71,37 @@
 
 <main id="top">
   <section class="hero">
-    <!-- one image per step (Record, Analyze, Improve, Repeat): replace the src with the final photos -->
+    <!-- one image per step (Record, Analyze, Improve): replace the src with the final photos -->
     <div class="hero-bg" aria-hidden="true">
       <img src="assets/home_teamvision_visual.jpg" alt="">
       <img src="assets/teamvision-UI.jpg" alt="">
-      <img src="assets/home_teamvision_visual.jpg" alt="">
-      <img src="assets/teamvision-UI.jpg" alt="">
     </div>
-    <div class="wrap">
+    <div class="wrap hero-head">
+      <span class="kicker">Our solution lies in our <span class="rai"><b>r</b><b>a</b><b>i</b></span> method</span>
+      <h1 class="motto" aria-label="Record. Analyze. Improve.">
+        <span class="on">Record</span><span>Analyze</span><span>Improve</span>
+      </h1>
+    </div>
+    <div class="wrap hero-grid">
       <div>
-        <h1 class="motto" aria-label="Record. Analyze. Improve. Repeat.">
-          <span class="on">Record</span><span>Analyze</span><span>Improve</span><span>Repeat</span>
-        </h1>
-        <p class="lead"><b>TeamVision helps experts train teams that operate together.</b> Record a session, see how the team coordinated, and debrief on evidence instead of memory. AI does the heavy lifting on the data; the trainer makes the calls. Born in hospitals, built for any team that trains.</p>
+        <p class="lead" data-text="hero.lead"></p>
         <div class="ctas">
-          <a class="btn btn-primary" href="mailto:info@teamvision.ai?subject=TeamVision%20demo%20request" data-demo>Request a demo
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-          <a class="btn btn-ghost" href="#record">See the loop</a>
+          <!-- <a class="btn btn-primary" href="mailto:info@teamvision.ai?subject=TeamVision%20demo%20request" data-demo><span data-text="hero.ctaDemo"></span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a> -->
+          <a class="btn btn-ghost" href="#record" data-text="hero.ctaLoop"></a>
         </div>
-        <p class="cred">Developed in partnership with <b>University of Geneva</b> · <b>HUG</b> · <b>CIS</b> · <b>SNSF</b></p>
+        <p class="cred" data-text="hero.cred"></p>
       </div>
 
       <div class="loop" aria-hidden="true">
         <svg viewBox="-60 -20 520 440">
-          <!-- donut cut in four chevrons on the diagonals; each points clockwise to the next step -->
-          <path class="seg" data-seg="0" style="--c:var(--rec)" d="M 69.9 64.3 A 188 188 0 0 1 330.1 64.3 L 320.9 95.2 L 290.5 103.9 A 132 132 0 0 0 109.5 103.9 L 101.3 74.0 Z"/>
-          <path class="seg" data-seg="1" style="--c:var(--ana)" d="M 335.7 69.9 A 188 188 0 0 1 335.7 330.1 L 304.8 320.9 L 296.1 290.5 A 132 132 0 0 0 296.1 109.5 L 326.0 101.3 Z"/>
-          <path class="seg" data-seg="2" style="--c:var(--imp)" d="M 330.1 335.7 A 188 188 0 0 1 69.9 335.7 L 79.1 304.8 L 109.5 296.1 A 132 132 0 0 0 290.5 296.1 L 298.7 326.0 Z"/>
-          <path class="seg" data-seg="3" style="--c:var(--rep)" d="M 64.3 330.1 A 188 188 0 0 1 64.3 69.9 L 95.2 79.1 L 103.9 109.5 A 132 132 0 0 0 103.9 290.5 L 74.0 298.7 Z"/>
+          <!-- donut cut in three chevrons; each points clockwise to the next step -->
+          <path class="seg" data-seg="0" style="--c:var(--rec)" d="M 39.2 102.6 A 188 188 0 0 1 360.8 102.6 L 343.9 130.1 L 312.3 130.6 A 132 132 0 0 0 87.7 130.6 L 72.1 103.9 Z"/>
+          <path class="seg" data-seg="1" style="--c:var(--ana)" d="M 364.8 109.5 A 188 188 0 0 1 204.0 388.0 L 188.6 359.6 L 204.0 331.9 A 132 132 0 0 0 316.2 137.5 L 347.2 137.3 Z"/>
+          <path class="seg" data-seg="2" style="--c:var(--imp)" d="M 196.0 388.0 A 188 188 0 0 1 35.2 109.5 L 67.5 110.3 L 83.8 137.5 A 132 132 0 0 0 196.0 331.9 L 180.7 358.8 Z"/>
           <g class="node" data-node="0" transform="translate(200 40)"><text x="0" y="-38" text-anchor="middle">Record</text><text class="num" x="0" y="-64" text-anchor="middle">01</text></g>
-          <g class="node" data-node="1" transform="translate(360 200)"><text x="40" y="6">Analyze</text><text class="num" x="40" y="-20">02</text></g>
-          <g class="node" data-node="2" transform="translate(200 360)"><text x="0" y="72" text-anchor="middle">Improve</text><text class="num" x="0" y="46" text-anchor="middle">03</text></g>
-          <g class="node" data-node="3" transform="translate(40 200)"><text x="-40" y="6" text-anchor="end">Repeat</text><text class="num" x="-40" y="-20" text-anchor="end">04</text></g>
+          <g class="node" data-node="1" transform="translate(363 294)"><text x="24" y="30">Analyze</text><text class="num" x="24" y="4">02</text></g>
+          <g class="node" data-node="2" transform="translate(37 294)"><text x="-24" y="30" text-anchor="end">Improve</text><text class="num" x="-24" y="4" text-anchor="end">03</text></g>
         </svg>
         <div class="loop-center"><img src="assets/logo.svg" alt=""></div>
       </div>
@@ -111,43 +110,43 @@
 
   <div class="wrap">
     <div class="steps-head">
-      <h2><span>How it works.</span></h2>
+      <h2><span>The Method.</span></h2>
       <nav class="steps-nav" aria-label="Steps">
         <a href="#record" class="on" style="--c:var(--rec)"><i>01</i>Record</a>
+        <span class="steps-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
         <a href="#analyze" style="--c:var(--ana)"><i>02</i>Analyze</a>
+        <span class="steps-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
         <a href="#improve" style="--c:var(--imp)"><i>03</i>Improve</a>
-        <a href="#repeat" style="--c:var(--rep)"><i>04</i>Repeat</a>
       </nav>
     </div>
 
     <div class="steps">
       <div class="steps-text">
         <article class="step on" id="record" data-step="0">
-          <span class="badge" style="background:var(--rec-bg);color:var(--rec)"><i style="background:var(--rec)">01</i>Record</span>
+          <span class="badge" style="--c:var(--rec);--c-bg:var(--rec-bg)"><i>01</i>Record</span>
           <h3>Perform and record your simulation using TV's software.</h3>
           <p class="card-text" data-text="record.body"></p>
           <ul>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rec)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Built for simulation rooms and clinical settings</li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rec)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Models the interaction in real time</li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rec)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg><span class="ph">[Setup &amp; equipment: to be completed]</span></li>
+            <!-- <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rec)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Built for simulation rooms and clinical settings</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rec)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Models the interaction in real time</li> -->
           </ul>
           <div class="mobile-visual"><img src="assets/home_teamvision_visual.jpg" alt="Clinical team recorded by TeamVision"></div>
         </article>
 
         <article class="step" id="analyze" data-step="1">
-          <span class="badge" style="background:var(--ana-bg);color:var(--ana)"><i style="background:var(--ana)">02</i>Analyze</span>
+          <span class="badge" style="--c:var(--ana);--c-bg:var(--ana-bg)"><i>02</i>Analyze</span>
           <h3>Find the moments that matter, without hours of video.</h3>
           <p class="card-text" data-text="analyze.body"></p>
           <ul>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--ana)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Team coordination vs. patient condition, minute by minute</li>
+            <!-- <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--ana)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Team coordination vs. patient condition, minute by minute</li>
             <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--ana)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Who attends to whom, and each member's share</li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--ana)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Up to 90% less time to detect risky behaviours*</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--ana)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Up to 90% less time to detect risky behaviours*</li> -->
           </ul>
           <div class="mobile-visual"><img src="assets/teamvision-UI.jpg" alt="TeamVision analytics dashboard"></div>
         </article>
 
         <article class="step" id="improve" data-step="2">
-          <span class="badge" style="background:var(--imp-bg);color:var(--imp)"><i style="background:var(--imp)">03</i>Improve</span>
+          <span class="badge" style="--c:var(--imp);--c-bg:var(--imp-bg)"><i>03</i>Improve</span>
           <h3>Debrief on evidence, not memory.</h3>
           <p class="card-text" data-text="improve.body"></p>
           <ul>
@@ -157,16 +156,6 @@
           </ul>
         </article>
 
-        <article class="step" id="repeat" data-step="3">
-          <span class="badge" style="background:var(--rep-bg);color:var(--rep)"><i style="background:var(--rep)">04</i>Repeat</span>
-          <h3>Run it again, and see the difference.</h3>
-          <p class="card-text" data-text="repeat.body"></p>
-          <ul>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rep)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Compare sessions side by side</li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rep)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Track team progress over a training programme</li>
-            <li><svg viewBox="0 0 20 20" fill="none" stroke="var(--rep)" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>Spot recurring patterns across teams</li>
-          </ul>
-        </article>
       </div>
 
       <div class="steps-visual" aria-hidden="true">
@@ -192,21 +181,6 @@
               <div class="moment"><time>14h29</time><div><h4>Team coordination improves</h4><p>What changed? Review roles, attention and positioning.</p><span class="chip up">Improvement</span></div></div>
               <div class="moment"><time>14h33</time><div><h4>Patient condition improves</h4><p>Both curves head back toward "good".</p><span class="chip up">Improvement</span></div></div>
               <p class="example">Example debrief based on the session shown in the dashboard</p>
-            </div>
-          </div>
-          <div class="panel p-rep" data-panel="3">
-            <div class="panel-bar"><span class="live" style="color:var(--rep)">REPEAT · COMPARE</span><span>Team progress</span></div>
-            <div class="panel-body">
-              <div class="legend"><span><i style="background:#c9bccd"></i>Session 1</span><span><i style="background:#b59bc6"></i>Session 2</span><span><i style="background:var(--rep)"></i>Session 3</span></div>
-              <svg viewBox="0 0 400 260" preserveAspectRatio="none" role="img" aria-label="Illustrative comparison of team coordination across three sessions">
-                <g stroke="#ebe5ec" stroke-width="1"><line x1="0" y1="40" x2="400" y2="40"/><line x1="0" y1="130" x2="400" y2="130"/><line x1="0" y1="220" x2="400" y2="220"/></g>
-                <text x="4" y="34" font-size="11" fill="#7a6a7d" font-family="Sora">GOOD</text>
-                <text x="4" y="214" font-size="11" fill="#7a6a7d" font-family="Sora">BAD</text>
-                <path d="M0 80 C 80 82, 110 200, 170 205 S 280 120, 400 110" fill="none" stroke="#c9bccd" stroke-width="3"/>
-                <path d="M0 70 C 80 72, 120 160, 180 165 S 280 90, 400 80" fill="none" stroke="#b59bc6" stroke-width="3"/>
-                <path id="s3" d="M0 60 C 90 60, 130 105, 190 110 S 290 55, 400 48" fill="none" stroke="var(--rep)" stroke-width="4"/>
-              </svg>
-              <p class="example">Illustrative chart, not measured data</p>
             </div>
           </div>
         </div>
@@ -236,7 +210,7 @@
         <span class="ico" style="background:var(--ana-bg)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--ana)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></span>
         <h3>Education</h3>
         <p>Immersive learning and interprofessional simulation.</p>
-        <p class="loop-line">Record a class exercise → objective feedback → repeat</p>
+        <p class="loop-line">Record a class exercise → objective feedback → improve</p>
       </article>
     </div>
   </section>
@@ -283,7 +257,7 @@
 <footer>
   <div class="wrap">
     <img src="assets/logo.svg" alt="TeamVision Healthcare">
-    <span>© 2026 TeamVision · Record, Analyze, Improve, Repeat.</span>
+    <span>© 2026 TeamVision · Record, Analyze, Improve.</span>
   </div>
 </footer>
 

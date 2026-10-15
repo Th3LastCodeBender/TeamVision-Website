@@ -16,6 +16,7 @@
     /* ==================================================================
        TEXTS: fill every [data-text] element from the TEXTS object
        (defined in texts.ts). data-text="record.body" reads TEXTS.record.body.
+       **double asterisks** in a text become bold.
        ================================================================== */
     function fillTexts() {
         document.querySelectorAll("[data-text]").forEach(function (element) {
@@ -26,7 +27,12 @@
                 console.warn("Missing text: " + element.dataset.text);
                 return;
             }
-            element.textContent = text;
+            // Escape the text, then turn **bold** into <b>bold</b>.
+            const escaped = text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+            element.innerHTML = escaped.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
         });
     }
     /* ==================================================================
@@ -190,12 +196,12 @@
     }
     /* ==================================================================
        HERO LOOP
-       Every 1.8s the next step lights up: its word in the motto,
+       Every 3.5s the next step lights up: its word in the motto,
        its slice of the donut, its label and its background image.
        ================================================================== */
     function setupHeroLoop() {
-        const STEP_COUNT = 4;
-        const INTERVAL_MS = 1800;
+        const STEP_COUNT = 3;
+        const INTERVAL_MS = 2000;
         const words = document.querySelectorAll(".motto span");
         const segments = document.querySelectorAll(".loop .seg");
         const labels = document.querySelectorAll(".loop .node");
